@@ -1,8 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import MovieCard from './MovieCard';
+import Movie from '../models/Movie';
 
 const movie: Movie = {
+  id: 1,
   title: 'Test Title!',
   runtime: 234
 }
