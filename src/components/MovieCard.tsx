@@ -1,15 +1,20 @@
 import React from 'react';
+import Movie from '../models/Movie';
 
 interface MovieCardProps {
-  title: string,
-  runtime: number
+  movie: Movie,
+  selected: boolean,
+  onClickSelect: (movie: Movie, select: boolean) => void
 }
 
 function MovieCard(props: MovieCardProps) {
   return (
     <>
-      <p>{props.title}</p>
-      <p>{props.runtime}</p>
+      <p>{props.movie.title}</p>
+      <p>{props.movie.runtime}</p>
+      <button onClick={() => props.onClickSelect(props.movie, !props.selected)}>
+        {props.selected ? 'Deselect' : 'Select'}
+      </button>
     </>
   );
 }

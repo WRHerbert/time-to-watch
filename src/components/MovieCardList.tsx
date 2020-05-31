@@ -3,7 +3,9 @@ import MovieCard from './MovieCard';
 import Movie from '../models/Movie';
 
 interface MovieCardListProps {
-  movies: Movie[]
+  movies: Movie[],
+  selectedMovieIds: number[]
+  onClickSelect: (movie: Movie, select: boolean) => void
 }
 
 function MovieCardList(props: MovieCardListProps) {
@@ -11,7 +13,10 @@ function MovieCardList(props: MovieCardListProps) {
     <>
       {props.movies.map(movie => (
         <div key={movie.id}>
-          <MovieCard {...movie}/>
+          <MovieCard 
+            movie={movie}
+            selected={props.selectedMovieIds.includes(movie.id)}
+            onClickSelect={props.onClickSelect}/>
         </div>)
       )}
     </>
